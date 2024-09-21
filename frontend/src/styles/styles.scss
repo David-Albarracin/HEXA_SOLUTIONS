@@ -1,0 +1,77 @@
+@use "@angular/material" as mat;
+//@use "./app/reusable/layout/layout.component.theme" as layout-theme;
+
+@include mat.core();
+
+mat-form-field{
+  margin-bottom: 0.5rem;
+}
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      use-system-variables:true
+    ),
+    typography: (
+      use-system-variables:true
+    )
+  )
+);
+:root{
+  @include mat.all-component-themes($light-theme);
+  //@include layout-theme.theme($light-theme);
+
+  @include mat.system-level-colors($light-theme);
+  @include mat.system-level-typography($light-theme);
+}
+
+
+
+html,
+body{
+  //height: 100%; 
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  transition: .4s;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--sys-background);
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  width: 100%;
+  height: auto;
+}
+
+@font-face {
+  font-family: "Marvin Visions Variable";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/MarvinVisionsTrial-Variable.ttf");
+}
+
+
+@import './grid';
+@import './layout';
+
+
+
+.comingSoon{
+  max-width: 250px;
+  border-radius: 25px;
+
+}

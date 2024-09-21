@@ -1,0 +1,81 @@
+<form [formGroup]="projectForm" (ngSubmit)="submit()">
+    <div class="d-flex flex-column justify-content-between align-items-center w-100">
+        
+        <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" matInput placeholder="Projects" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon>nombre</mat-icon>
+            </button>
+            @if (projectForm.get('nombre')?.hasError('nombre') && !projectForm.get('nombre')?.hasError('required')) {
+                <mat-error>
+                    Ingresa un nombre Valido
+                </mat-error>
+            }@else if (projectForm.get('nombre')?.hasError('required')) {
+                <mat-error>
+                    El nombre es <strong>requerido</strong>
+                </mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Description</mat-label>
+            <input formControlName="description" matInput placeholder="Projects" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon>description</mat-icon>
+            </button>
+            @if (projectForm.get('description')?.hasError('description') && !projectForm.get('description')?.hasError('required')) {
+                <mat-error>
+                    Ingresa un description Valido
+                </mat-error>
+            }@else if (projectForm.get('description')?.hasError('required')) {
+                <mat-error>
+                    El description es <strong>requerido</strong>
+                </mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>fecha_inicio</mat-label>
+            <input formControlName="fecha_inicio" type="date" matInput placeholder="Projects" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon>fecha_inicio</mat-icon>
+            </button>
+            @if (projectForm.get('fecha_inicio')?.hasError('minlength')) {
+                <mat-error>
+                    Ingresa un fecha_inicio Valido
+                </mat-error>
+            }@else if (projectForm.get('fecha_inicio')?.hasError('required')) {
+                <mat-error>
+                    El fecha_inicio es <strong>requerido</strong>
+                </mat-error>
+            }
+        </mat-form-field>
+
+        
+
+        <mat-form-field class="w-100">
+            <mat-label> fecha_fin</mat-label>
+            <input formControlName=" fecha_fin" type="date"  matInput placeholder="Projects" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon> fecha_fin</mat-icon>
+            </button>
+            @if (compararFecha())  {
+                <mat-error>
+                    Ingresa un  fecha_fin Valido
+                </mat-error>
+            }@else if (projectForm.get(' fecha_fin')?.hasError('required')) {
+                <mat-error>
+                    El  fecha_fin es <strong>requerido</strong>
+                </mat-error>
+            }
+        </mat-form-field>
+        <button [disabled]="!projectForm.valid" class="mt-3 mb-2" type="submit" mat-flat-button>
+            Continuar
+            <mat-icon fontIcon="security"></mat-icon>
+        </button>
+    
+    
+    </div>
+
+</form>
