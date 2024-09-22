@@ -25,4 +25,6 @@ public class Grupos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    String nombre;
+
 }

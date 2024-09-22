@@ -43,7 +43,9 @@ public class MessageService {
         Optional<Message> optionalMessage = this.messageRepository.findById(id);
         if (optionalMessage.isPresent()) {
             Message messageItem = optionalMessage.orElseThrow();
-            // Sets
+            messageItem.setContenido(message.getContenido());
+            messageItem.setFechaEnvio(message.getFechaEnvio());
+            messageItem.setUsuario(message.getUsuario());
             return Optional.of(this.messageRepository.save(messageItem));
         }
         return optionalMessage;

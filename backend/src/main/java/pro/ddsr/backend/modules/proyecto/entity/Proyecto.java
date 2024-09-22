@@ -1,16 +1,11 @@
-
 package pro.ddsr.backend.modules.proyecto.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
+import pro.ddsr.backend.modules.actividad.entity.Actividad;
 
 @Setter
 @Getter
@@ -23,6 +18,17 @@ public class Proyecto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
+    @Column(nullable = false)
+    private String nombre;
+
+    private String descripcion;
+
+    private LocalDate fechaInicio;
+
+    private LocalDate fechaFin;
+
+    @OneToMany(mappedBy = "proyecto")
+    private List<Actividad> actividades;
 }

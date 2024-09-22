@@ -43,7 +43,9 @@ public class LoginHistorialService {
         Optional<LoginHistorial> optionalLoginHistorial = this.login_historialRepository.findById(id);
         if (optionalLoginHistorial.isPresent()) {
             LoginHistorial login_historialItem = optionalLoginHistorial.orElseThrow();
-            // Sets
+            login_historialItem.setUsuario(login_historial.getUsuario());
+            login_historialItem.setFechaInicio(login_historial.getFechaInicio());
+            login_historialItem.setFechaFin(login_historial.getFechaFin());
             return Optional.of(this.login_historialRepository.save(login_historialItem));
         }
         return optionalLoginHistorial;

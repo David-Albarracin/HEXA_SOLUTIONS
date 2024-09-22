@@ -43,7 +43,7 @@ public class GruposService {
         Optional<Grupos> optionalGrupos = this.gruposRepository.findById(id);
         if (optionalGrupos.isPresent()) {
             Grupos gruposItem = optionalGrupos.orElseThrow();
-            // Sets
+            gruposItem.setNombre(grupos.getNombre());
             return Optional.of(this.gruposRepository.save(gruposItem));
         }
         return optionalGrupos;
