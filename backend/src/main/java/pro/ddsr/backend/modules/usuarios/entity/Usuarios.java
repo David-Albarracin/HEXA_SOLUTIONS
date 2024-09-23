@@ -48,4 +48,6 @@ public class Usuarios {
     @JoinColumn(name = "rol_id", nullable = false)
     private Roles rol;
 
+
+
 }
