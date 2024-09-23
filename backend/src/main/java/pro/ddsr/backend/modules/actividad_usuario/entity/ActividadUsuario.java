@@ -1,16 +1,11 @@
 
 package pro.ddsr.backend.modules.actividad_usuario.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.time.LocalDate;
+import jakarta.persistence.*;
+import lombok.*;
+import pro.ddsr.backend.modules.actividad.entity.Actividad;
+import pro.ddsr.backend.modules.usuarios.entity.Usuarios;
 
 @Setter
 @Getter
@@ -23,6 +18,20 @@ public class ActividadUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuarios usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "actividad_id", nullable = false)
+    private Actividad actividad;
+
+    @Column(nullable = false)
+    private int tiempoInvertido;
+
+    @Column(nullable = false)
+    private LocalDate fecha;
 
 }

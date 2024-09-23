@@ -43,7 +43,10 @@ public class ActividadUsuarioService {
         Optional<ActividadUsuario> optionalActividadUsuario = this.actividad_usuarioRepository.findById(id);
         if (optionalActividadUsuario.isPresent()) {
             ActividadUsuario actividad_usuarioItem = optionalActividadUsuario.orElseThrow();
-            // Sets
+            actividad_usuarioItem.setActividad(actividad_usuario.getActividad());
+            actividad_usuarioItem.setFecha(actividad_usuario.getFecha());
+            actividad_usuarioItem.setTiempoInvertido(actividad_usuario.getTiempoInvertido());
+            actividad_usuarioItem.setUsuario(actividad_usuario.getUsuario());
             return Optional.of(this.actividad_usuarioRepository.save(actividad_usuarioItem));
         }
         return optionalActividadUsuario;

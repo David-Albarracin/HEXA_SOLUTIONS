@@ -43,7 +43,7 @@ public class RolesService {
         Optional<Roles> optionalRoles = this.rolesRepository.findById(id);
         if (optionalRoles.isPresent()) {
             Roles rolesItem = optionalRoles.orElseThrow();
-            // Sets
+            rolesItem.setNombre(roles.getNombre());
             return Optional.of(this.rolesRepository.save(rolesItem));
         }
         return optionalRoles;

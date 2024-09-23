@@ -43,7 +43,11 @@ public class ProyectoService {
         Optional<Proyecto> optionalProyecto = this.proyectoRepository.findById(id);
         if (optionalProyecto.isPresent()) {
             Proyecto proyectoItem = optionalProyecto.orElseThrow();
-            // Sets
+            proyectoItem.setNombre(proyecto.getNombre());
+            proyectoItem.setFechaFin(proyecto.getFechaFin());
+            proyectoItem.setFechaInicio(proyecto.getFechaInicio());
+            proyectoItem.setDescripcion(proyecto.getDescripcion());
+            //proyectoItem.setActividad(proyecto.getActividad());
             return Optional.of(this.proyectoRepository.save(proyectoItem));
         }
         return optionalProyecto;

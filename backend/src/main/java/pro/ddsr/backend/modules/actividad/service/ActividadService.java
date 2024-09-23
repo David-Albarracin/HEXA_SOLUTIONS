@@ -43,7 +43,9 @@ public class ActividadService {
         Optional<Actividad> optionalActividad = this.actividadRepository.findById(id);
         if (optionalActividad.isPresent()) {
             Actividad actividadItem = optionalActividad.orElseThrow();
-            // Sets
+            actividadItem.setEstado(actividad.getEstado());
+            actividadItem.setNombre(actividad.getNombre());
+            actividadItem.setProyecto(actividad.getProyecto());
             return Optional.of(this.actividadRepository.save(actividadItem));
         }
         return optionalActividad;

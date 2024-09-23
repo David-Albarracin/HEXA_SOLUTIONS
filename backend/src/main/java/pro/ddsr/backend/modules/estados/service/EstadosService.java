@@ -43,7 +43,8 @@ public class EstadosService {
         Optional<Estados> optionalEstados = this.estadosRepository.findById(id);
         if (optionalEstados.isPresent()) {
             Estados estadosItem = optionalEstados.orElseThrow();
-            // Sets
+            estadosItem.setActividades(estados.getActividades());
+            estadosItem.setNombre(estados.getNombre());
             return Optional.of(this.estadosRepository.save(estadosItem));
         }
         return optionalEstados;
