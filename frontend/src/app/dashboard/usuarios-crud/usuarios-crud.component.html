@@ -1,1 +1,68 @@
-<p>usuarios-crud works!</p>
+<form [formGroup]="usuarioForm" (ngSubmit)="submit()">
+    <div class="d-flex flex-column justify-content-between align-items-center w-100">
+        
+        <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" matInput placeholder="Nombre del usuario" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon>person</mat-icon>
+            </button>
+            <mat-error *ngIf="usuarioForm.get('nombre')?.hasError('required')">
+                El nombre es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput type="email" placeholder="Correo electrónico" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon>email</mat-icon>
+            </button>
+            <mat-error *ngIf="usuarioForm.get('email')?.hasError('required')">
+                El correo es <strong>requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="usuarioForm.get('email')?.hasError('email')">
+                Ingresa un correo válido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Contraseña</mat-label>
+            <input formControlName="password" matInput type="password" placeholder="Contraseña" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="usuarioForm.get('password')?.hasError('required')">
+                La contraseña es <strong>requerida</strong>
+            </mat-error>
+            <mat-error *ngIf="usuarioForm.get('password')?.hasError('minlength')">
+                La contraseña debe tener al menos 6 caracteres
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Grupo</mat-label>
+            <input formControlName="grupo_id" matInput placeholder="ID del grupo">
+            <button mat-icon-button matSuffix>
+                <mat-icon>group</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Rol</mat-label>
+            <input formControlName="rol_id" matInput placeholder="ID del rol" required>
+            <button mat-icon-button matSuffix>
+                <mat-icon>badge</mat-icon>
+            </button>
+            <mat-error *ngIf="usuarioForm.get('rol_id')?.hasError('required')">
+                El rol es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <button [disabled]="!usuarioForm.valid" class="mt-3 mb-2" type="submit" mat-flat-button>
+            Continuar
+            <mat-icon fontIcon="security"></mat-icon>
+        </button>
+    
+    </div>
+</form>
