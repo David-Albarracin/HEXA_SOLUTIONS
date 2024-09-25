@@ -1,5 +1,5 @@
 
-package pro.ddsr.backend.modules.usuarios.dto;
+package pro.ddsr.backend.modules.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuariosDto {
+public class AuthResponse {
     private String token;
 }

@@ -43,10 +43,9 @@ public class UsuariosService {
         Optional<Usuarios> optionalUsuarios = this.usuariosRepository.findById(id);
         if (optionalUsuarios.isPresent()) {
             Usuarios usuariosItem = optionalUsuarios.orElseThrow();
-            usuariosItem.setNombre(usuarios.getNombre());
-            usuariosItem.setEmail(usuarios.getEmail());
+            usuariosItem.setUsername(usuarios.getUsername());
             usuariosItem.setPassword(usuarios.getPassword());
-            usuariosItem.setRol(usuarios.getRol());
+            usuariosItem.setRole(usuarios.getRole());
             return Optional.of(this.usuariosRepository.save(usuariosItem));
         }
         return optionalUsuarios;
