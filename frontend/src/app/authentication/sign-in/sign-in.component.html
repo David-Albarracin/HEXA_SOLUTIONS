@@ -6,10 +6,10 @@
                 
                 <span class="text-primary fs-1 mavin  py-4">Inicia Sesión</span>
                 <mat-form-field class="w-100">
-                    <mat-label>Email</mat-label>
-                    <input formControlName="email" matInput placeholder="pat@gmail.com" required>
+                    <mat-label>Nombre de Usuario</mat-label>
+                    <input formControlName="username" matInput placeholder="camper777" required>
                     <button mat-icon-button matSuffix>
-                        <mat-icon>email</mat-icon>
+                        <mat-icon>person</mat-icon>
                     </button>
                     @if (authForm.get('email')?.hasError('email') && !authForm.get('userName')?.hasError('required')) {
                         <mat-error>

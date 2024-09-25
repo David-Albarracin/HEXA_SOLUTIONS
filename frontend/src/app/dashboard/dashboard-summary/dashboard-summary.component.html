@@ -1,13 +1,37 @@
-<app-activity-card></app-activity-card>
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="d-flex w-100 h-100 p-2 m-2 bg-gray">
-            @for (actividad of actividades; track $index) {
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="d-flex flex-column w-100 h-100 p-2 m-2 bg-gray">
+    
+                @for (actividad of actividadesPendientes(); track $index) {
+                    <app-activity-card [actividad]="actividad"></app-activity-card>
+                }
 
-            }
+                @if (role == "admin") {
+                    <div class="w-100">
+                      <button class="">
+
+                      </button>
+                    </div>
+                  }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="d-flex w-100 h-100 p-2 m-2 bg-gray">
+                @for (actividad of actividadesProceso(); track $index) {
+                    <app-activity-card></app-activity-card>
+    
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="d-flex w-100 h-100 p-2 m-2 bg-gray">
+                @for (actividad of actividadesTerminadas(); track $index) {
+                    <app-activity-card></app-activity-card>
+    
+                }
+            </div>
         </div>
     </div>
 </div>
-
-<app-proyecto-crud></app-proyecto-crud>

@@ -14,6 +14,8 @@ export class AuthService {
 
 
   jwtHelper = inject(JwtHelperService);
+  router = inject(Router);
+
   //dialogPortal = inject(SweetPortalService);
 
   URL = environment.URL
@@ -32,19 +34,19 @@ export class AuthService {
     return this.cookieService.get('authToken');
   }
 
-  router = inject(Router)
-
+  get userRole(){
+    return "admin"
+  }
 
   httpAccount(account:Partial<{
     userName: string | null;
-    email: string | null;
     password: string | null;
-    passwordConfirm: string | null;
+    //passwordConfirm: string | null;
 }>, type:string){
-    return this.http.post<string>(`${this.URL}/account/${type}`, account).subscribe({
-      next: (res) => {
-        this.cookieService.set("authToken", res);
-        //this.dialogPortal.close('AuthenticationComponent');
+    return this.http.post<string>(`${this.URL}/auth/${type}`, account).subscribe({
+      next: (res:any) => {
+        this.cookieService.set("authToken", res.token);
+        this.router.navigateByUrl("dashboard")
       },
       error: (err) => console.log(err)
     })

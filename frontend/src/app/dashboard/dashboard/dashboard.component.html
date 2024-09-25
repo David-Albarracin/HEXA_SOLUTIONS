@@ -1,5 +1,27 @@
-<main class="main">
-    <app-dashboard-sidebar></app-dashboard-sidebar>
-    <router-outlet></router-outlet>
-    
+<main class="vw-100 vh-100">
+
+    <mat-drawer-container class="w-100 h-100  text-bg-secondary" autosize>
+        <mat-drawer #drawer class="overflow-x-hidden" mode="side">
+            <div class="p-2">
+                <app-dashboard-sidebar></app-dashboard-sidebar>
+            </div>
+        </mat-drawer>
+      
+        <div class="p-4">
+            <div class="d-felx w-100 p-1 bg-white justify-content-end align-items-center rounded-4">
+                <button type="button" mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+
+            <div class="pt-4">
+                <router-outlet></router-outlet>
+            </div>
+       
+        </div>
+      
+      </mat-drawer-container>
+
 </main>
+
+

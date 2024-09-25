@@ -9,8 +9,8 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-actividad-crud',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatIconModule, ReactiveFormsModule, MatButtonModule],
-  templateUrl: './actividad-crud.component.html',
-  styleUrls: ['./actividad-crud.component.scss']
+  templateUrl: './activity-crud.component.html',
+  styleUrls: ['./activity-crud.component.scss']
 })
 export class ActividadCrudComponent {
 

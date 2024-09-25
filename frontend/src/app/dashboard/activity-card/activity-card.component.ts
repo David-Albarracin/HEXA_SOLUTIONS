@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { Actividad } from '../../reusable/models/actividad/actividad.interface';
+import { AuthService } from '../../reusable/core/services/auth.service';
 
 @Component({
   selector: 'app-activity-card',
@@ -9,5 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './activity-card.component.scss'
 })
 export class ActivityCardComponent {
+
+  @Input()actividad!:Actividad
+
+
 
 }

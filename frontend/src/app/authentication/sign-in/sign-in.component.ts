@@ -22,7 +22,7 @@ export class SignInComponent {
   authService = inject(AuthService);
 
   authForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
   
@@ -30,7 +30,7 @@ export class SignInComponent {
   submit(){
     if (this.authForm.valid) {
       const account = this.authForm.value;
-      this.authService.httpAccount(account, 'singIn')
+      this.authService.httpAccount(account, 'register')
     } else {
       console.error('Form is invalid');
     }

@@ -9,8 +9,8 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-usuario-crud',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatIconModule, ReactiveFormsModule, MatButtonModule],
-  templateUrl: './usuario-crud.component.html',
-  styleUrls: ['./usuario-crud.component.scss']
+  templateUrl: './usuarios-crud.component.html',
+  styleUrls: ['./usuarios-crud.component.scss']
 })
 export class UsuarioCrudComponent {
 

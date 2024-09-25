@@ -19,7 +19,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
   const authReq = req.clone({
     setHeaders: {
       'Content-Type': 'application/json',
-      //Authorization: `Bearer ${authService.authToken}`
+      Authorization: `Bearer ${authService.authToken}`
       //Authorization: 'Basic ' + btoa('pepe:1234')
     }
   });
